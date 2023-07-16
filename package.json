@@ -1,0 +1,10 @@
+{
+  "name": "trigg-robot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Christian Genco <christian@gen.co>",
+  "license": "MIT",
+  "dependencies": {
+    "serialport": "^11.0.0"
+  }
+}

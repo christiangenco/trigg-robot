@@ -1,0 +1,218 @@
+<html>
+  <head>
+    <link href="tailwind.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/lodash.throttle@4.1.1/index.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/lodash.debounce@4.0.8/index.js"></script> -->
+    <script src="throttle.js"></script>
+    <script src="joy.min.js"></script>
+  </head>
+  <body>
+    <div class="max-w-7xl mx-auto px-8 sm:px-8 lg:px-10 mt-16">
+      <div id="debug"></div>
+      <h2
+        class="
+          text-3xl
+          font-bold
+          tracking-tight
+          text-gray-900
+          sm:text-4xl
+          text-center
+          mb-4
+        "
+      >
+        Robot Controller
+      </h2>
+
+      <!-- <label>code</label> -->
+
+      <!--       <input
+        id="code"
+        onchange="setCode()"
+        type="text"
+        class="w-full mb-10 rounded bg-gray-200 text-xl px-2 py-3"
+      /> -->
+
+      <div class="mt-2 flex rounded-md shadow-sm">
+        <div class="relative flex flex-grow items-stretch focus-within:z-10">
+          <input
+            type="text"
+            id="code"
+            onchange="setCode()"
+            placeholder="code"
+            class="
+              block
+              w-full
+              rounded-none rounded-l-md
+              border-0
+              py-2
+              px-2
+              text-gray-900
+              ring-1 ring-inset ring-gray-300
+              placeholder:text-gray-400
+              focus:ring-2 focus:ring-inset focus:ring-indigo-600
+              sm:text-sm sm:leading-6
+            "
+          />
+        </div>
+        <button
+          type="button"
+          id="codeSaveButton"
+          onclick="document.getElementById('codeSaveButton').innerText = 'Saved'"
+          class="
+            relative
+            -ml-px
+            inline-flex
+            items-center
+            gap-x-1.5
+            rounded-r-md
+            px-3
+            py-2
+            text-sm
+            font-semibold
+            text-gray-900
+            ring-1 ring-inset ring-gray-300
+            hover:bg-gray-50
+          "
+        >
+          Save
+        </button>
+      </div>
+      <br />
+
+      <div
+        id="joyDiv"
+        style="margin-bottom: 20px"
+        class="bg-green-100 rounded-lg"
+      ></div>
+
+      <div class="text-center text-xl font-bold">Twist</div>
+      <input
+        id="twist"
+        oninput="changed('twist')"
+        type="range"
+        class="w-full mb-10"
+        min="1"
+        max="100"
+        value="50"
+      />
+
+      <div id="advanced" class="hidden">
+        <label>wrist</label>
+        <br />
+        <input
+          id="wrist"
+          oninput="changed('wrist')"
+          type="range"
+          class="w-full mb-10"
+          min="1"
+          max="100"
+          value="50"
+        />
+
+        <label>elbow</label>
+        <br />
+        <input
+          id="elbow"
+          oninput="changed('elbow')"
+          type="range"
+          class="w-full mb-10"
+          min="1"
+          max="100"
+          value="50"
+        />
+
+        <label>shoulder</label>
+        <br />
+        <input
+          id="shoulder"
+          oninput="changed('shoulder')"
+          type="range"
+          class="w-full mb-10"
+          min="1"
+          max="100"
+          value="50"
+        />
+
+        <label>rotate</label>
+        <br />
+        <input
+          id="rotate"
+          oninput="changed('rotate')"
+          type="range"
+          class="w-full mb-10"
+          min="1"
+          max="100"
+          value="50"
+        />
+      </div>
+
+      <br />
+      <div class="text-center">
+        <button
+          id="togglehand"
+          class="px-2 py-3 rounded bg-green-500 text-white text-xl font-bold"
+          onclick="changed('togglehand')"
+        >
+          Open Hand
+        </button>
+        <button
+          id="catch"
+          class="px-2 py-3 rounded bg-red-500 text-white text-xl font-bold"
+        >
+          Catch
+        </button>
+        <button
+          id="toggleshake"
+          class="
+            px-2
+            py-3
+            rounded
+            bg-yellow-500
+            text-white
+            hidden
+            text-xl
+            font-bold
+          "
+          onclick="changed('toggleshake')"
+        >
+          Shake
+        </button>
+        <button
+          id="togglebow"
+          class="px-6 py-3 rounded bg-blue-500 text-white text-xl font-bold"
+          onclick="changed('togglebow')"
+        >
+          Bow
+        </button>
+      </div>
+
+      <br />
+      <div class="text-center">
+        <button
+          id="toggleadvanced"
+          class="px-2 py-3 rounded bg-gray-500 text-white text-sm"
+          onclick="toggleAdvanced()"
+        >
+          Show Controls
+        </button>
+      </div>
+
+      <!--       <br />
+      <br />
+      <br />
+      <br /> -->
+
+      <!--       <button
+        id="startTracking"
+        class="px-2 py-3 rounded bg-blue-500 text-white"
+        onclick="startTracking()"
+      >
+        start tracking
+      </button> -->
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
